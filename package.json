@@ -1,0 +1,41 @@
+{
+  "name": "trmnl-tray",
+  "version": "1.0.0",
+  "description": "Tray/menubar app for viewing the current TRMNL screen",
+  "main": "src/main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "electron:build": "electron-builder --publish never",
+    "electron:publish": "electron-builder --publish onTag"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "electron-store": "^8.2.0"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.4.0"
+  },
+  "build": {
+    "appId": "com.electron.trmnltray",
+    "productName": "TRMNL Tray",
+    "publish": ["github"],
+    "directories": {
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "target": ["AppImage", "tar.bz2"]
+    }
+  }
+}
